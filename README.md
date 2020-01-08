@@ -19,7 +19,7 @@ composer run game
 
 Install dependencies
 ```bash
-composer install
+composer update
 ```
 
 Run tests
@@ -54,4 +54,11 @@ composer install
 Run tests:
 ```
 composer run test
+```
+
+### Troubleshooting 
+
+1. On my ubuntu virtual server on DO I needed to install:
+```bash
+apt-get install composer php7.2-mbstring php7.2-dom
 ```
