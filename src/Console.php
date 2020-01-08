@@ -16,8 +16,6 @@ class Console
 
     function println($line = "")
     {
-
-//        fwrite(STDERR, "$line\n");
         echo "$line\n";
     }
 }
