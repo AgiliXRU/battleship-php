@@ -1,5 +1,6 @@
 {
   "name": "proscrumdev/battleship",
+  "description": "simple console game",
   "autoload": {
     "classmap": [
       "src/"
