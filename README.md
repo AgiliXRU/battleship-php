@@ -15,8 +15,14 @@ Run battleship with composer
 composer run game
 ```
 
-Execute tests with composer
+## Execute tests with composer
 
+Install dependencies
+```bash
+composer install
+```
+
+Run tests
 ```bash
 composer run test
 ```
@@ -35,11 +41,17 @@ docker run -it -v ${PWD}:/battleship -w /battleship composer bash
 # Launching the game
 
 ```bash
- composer run game
+composer run game
 ```
 
 # Running the Tests
 
+Don't forget to install dependencies ;)
+```bash
+composer install
+```
+
+Run tests:
 ```
 composer run test
 ```
