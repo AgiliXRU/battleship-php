@@ -4,7 +4,7 @@ A simple game of Battleship, written in PHP.
 
 # Getting started
 
-This project requires a php 7.4 or higher. To prepare to work with it, pick one of these
+This project requires a php7 or higher. To prepare to work with it, pick one of these
 options:
 
 ## Run locally

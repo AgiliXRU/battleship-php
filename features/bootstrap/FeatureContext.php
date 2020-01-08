@@ -13,8 +13,8 @@ use PHPUnit\Framework\Assert;
  */
 class FeatureContext implements Context
 {
-    private Ship $ship;
-    private bool $validationResult;
+    private $ship;
+    private $validationResult;
     /**
      * Initializes context.
      *
