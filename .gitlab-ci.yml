@@ -20,8 +20,8 @@ unit test:
       - reports/phpunit.report.xml
     expire_in: 1 week
     reports:
-      junit: reports/phpunit.report.xml
-      coverage: reports/phpunit.coverage.xml
+      junit:
+      - reports/phpunit.report.xml
 
 sonar:
   stage: analysis
