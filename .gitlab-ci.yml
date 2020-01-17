@@ -2,11 +2,19 @@ image: composer
 
 stages:
   - unit-test
+  - analyse
 
 unit test:
   stage: unit-test
   before_script:
-  - php -V
   - composer update
   script:
   - composer unittest
+
+analyse:
+  stage: unit-test
+  before_script:
+  - composer update
+  script:
+  - composer analyse
+
