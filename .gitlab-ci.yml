@@ -16,16 +16,19 @@ unit test:
   - composer test
   artifacts:
     paths:
+      - reports/default.xml
       - reports/phpunit.coverage.xml
       - reports/phpunit.report.xml
     expire_in: 1 week
     reports:
       junit:
       - reports/phpunit.report.xml
+      - reports/default.xml
 
 sonar:
   stage: analysis
   image: mercuriete/sonar-scanner
   script:
-  - sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL
+  	- composer analysis
+#   - sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL
 

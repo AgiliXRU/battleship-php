@@ -19,8 +19,9 @@
     "game": "App::run",
     "test": [
       "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
-      "vendor/bin/behat"
+      "vendor/bin/behat -f junit --out reports/behave.xml"
     ],
+    "at": "vendor/bin/behat -f junit --out reports",
     "unittest": "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
     "analysis": "export $(cat .env | xargs) && docker run -v ${PWD}:${PWD} -w ${PWD} mercuriete/sonar-scanner sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL",
     "lint": "vendor/bin/phpcs -- --standard=PSR12 src test",
