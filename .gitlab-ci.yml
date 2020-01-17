@@ -29,6 +29,6 @@ sonar:
   stage: analysis
   image: mercuriete/sonar-scanner
   script:
-  	- composer analysis
+  - composer analysis
 #   - sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL
 
