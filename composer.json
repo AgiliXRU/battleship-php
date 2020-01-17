@@ -8,9 +8,7 @@
   },
   "require": {
     "php": ">7",
-    "composer/xdebug-handler": "^1.4",
-    "rogervila/php-sonarqube-scanner": "^0.4.0",
-    "psr/container": "^1.0"
+    "squizlabs/php_codesniffer": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^8",
@@ -23,7 +21,9 @@
       "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
       "vendor/bin/behat"
     ],
-    "unittest" : "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
-    "analyse": "vendor/bin/sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=4c8b8575a0742e5dd83034f24fe552f19a4c4df8 -Dsonar.host.url=http://sonar.sergeylobin.ru:9000"
+    "unittest": "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
+    "analysis": "export $(cat .env | xargs) && docker run -v ${PWD}:${PWD} -w ${PWD} mercuriete/sonar-scanner sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=$SONAR_URL",
+    "lint": "vendor/bin/phpcs -- --standard=PSR12 src test",
+    "lint-fix": "vendor/bin/phpcbf -- --standard=PSR12 src test"
   }
 }
