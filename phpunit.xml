@@ -1,11 +1,29 @@
-<testsuites>
-    <testsuite name="Application tests">
-        <directory>test/</directory>
-        <file>test/AppTests.php</file>
-        <file>test/AppE2ETests.php</file>
-    </testsuite>
-    <testsuite name="Battleship GameController tests">
-        <directory>test/</directory>
-        <file>test/Battleship/GameControllerTests.php</file>
-    </testsuite>
-</testsuites>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Application tests">
+            <directory>test/</directory>
+            <file>test/AppTests.php</file>
+            <file>test/AppE2ETests.php</file>
+        </testsuite>
+        <testsuite name="Battleship GameController tests">
+            <directory>test/</directory>
+            <file>test/Battleship/GameControllerTests.php</file>
+        </testsuite>
+
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,5 +1,5 @@
 {
-  "name": "proscrumdev/battleship",
+  "name": "proscrumdev/battleship-php",
   "description": "simple console game",
   "autoload": {
     "classmap": [
@@ -7,18 +7,23 @@
     ]
   },
   "require": {
-    "php": ">7"
+    "php": ">7",
+    "composer/xdebug-handler": "^1.4",
+    "rogervila/php-sonarqube-scanner": "^0.4.0",
+    "psr/container": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^8",
-    "behat/behat": "3.5.0"
+    "behat/behat": "3.5.0",
+    "phpunit/php-code-coverage": "^7.0"
   },
   "scripts": {
     "game": "App::run",
     "test": [
-      "vendor/bin/phpunit --bootstrap vendor/autoload.php -c phpunit.xml",
+      "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
       "vendor/bin/behat"
     ],
-    "unittest" : "vendor/bin/phpunit --bootstrap vendor/autoload.php -c phpunit.xml"
+    "unittest" : "vendor/bin/phpunit -c phpunit.xml --coverage-clover reports/phpunit.coverage.xml --log-junit reports/phpunit.report.xml",
+    "analyse": "vendor/bin/sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=4c8b8575a0742e5dd83034f24fe552f19a4c4df8 -Dsonar.host.url=http://sonar.sergeylobin.ru:9000"
   }
 }

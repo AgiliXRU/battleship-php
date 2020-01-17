@@ -1,3 +1,6 @@
+.scannerwork/
+.sonar/
 .idea/
 vendor/
+reports/
 .phpunit*
