@@ -2,7 +2,7 @@ image: composer
 
 stages:
   - unit-test
-  - analyse
+  - analysis
 
 unit test:
   stage: unit-test
@@ -11,10 +11,10 @@ unit test:
   script:
   - composer unittest
 
-analyse:
-  stage: unit-test
-  before_script:
-  - composer update
+sonar:
+  stage: analysis
+  image: mercuriete/sonar-scanner
   script:
-  - composer analyse
+  - sonar-scanner -Dsonar.exclusions=**/*.xml -Dproject.settings=sonar-scanner.properties -Dsonar.login=4c8b8575a0742e5dd83034f24fe552f19a4c4df8 -Dsonar.host.url=http://sonar.sergeylobin.ru:9000"
+#   -Dsonar.host.url=$$$SONAR_URL$$$ -Dsonar.projectKey=$$$SONAR_PROJECT_KEY$$$ -Dsonar.projectName=$$$SONAR_PROJECT_KEY$$$ -Dsonar.sources=torpydo,tests,features -Dsonar.python.xunit.reportPath=nosetests.xml -Dsonar.python.coverage.reportPaths=coverage.xml
 
