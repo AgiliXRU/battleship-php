@@ -8,7 +8,10 @@ unit test:
   stage: unit-test
   before_script:
   - composer update
+  - apk add autoconf
   - pecl install xdebug
+  - docker-php-ext-enable xdebug
+  - php -v
   script:
   - composer test
   artifacts:
