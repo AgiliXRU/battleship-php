@@ -1,0 +1,12 @@
+image: composer
+
+stages:
+  - unit-test
+
+unit test:
+  stage: unit-test
+  before_script:
+  - php -V
+  - composer update
+  script:
+  - composer unittest
